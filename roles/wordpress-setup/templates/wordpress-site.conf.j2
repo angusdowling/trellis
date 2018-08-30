@@ -252,3 +252,28 @@ server {
 }
 {% endfor %}
 {% endblock %}
+
+{% block redirect_frontend %}
+server {
+  listen [::]:80;
+  listen 80;
+  server_name {{ site_hosts_frontend | union(multisite_subdomains_wildcards) | join(' ') }};
+
+  root  {{ www_root }}/{{ item.key }}/{{ item.value.current_path | default('current') }}/frontend;
+
+  location / {
+    # default port, could be changed if you use next with custom server
+    proxy_pass http://127.0.0.1:3000;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+    
+    # if you have try_files like this, remove it from our block
+    # otherwise next app will not work properly
+    # try_files $uri $uri/ =404;
+  }
+}
+{% endblock %}

@@ -6,6 +6,7 @@ users:
   - name: "{{ web_user }}"
     groups:
       - "{{ web_group }}"
+      - sudo
     keys:
       - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
       # - https://github.com/username.keys

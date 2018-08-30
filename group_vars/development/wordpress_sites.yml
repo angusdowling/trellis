@@ -5,9 +5,10 @@
 wordpress_sites:
   example.com:
     site_hosts:
-      - canonical: example.test
+      - canonical: admin.example.test
+        frontend: example.test
         redirects:
-          - www.example.test
+          - www.admin.example.test
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
     admin_email: admin@example.test
     multisite:

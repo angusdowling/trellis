@@ -5,7 +5,8 @@
 wordpress_sites:
   example.com:
     site_hosts:
-      - canonical: staging.example.com
+      - canonical: admin.example-staging.com
+      - frontend: example-staging.com
         # redirects:
         #   - otherdomain.com
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)

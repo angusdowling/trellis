@@ -22,6 +22,10 @@ module Trellis
       @site_hosts_canonical ||= site_hosts.map { |host| host['canonical'] }
     end
 
+    def site_hosts_frontend
+      @site_hosts_frontend ||= site_hosts.map { |host| host['frontend'] }
+    end
+
     def site_hosts_redirects
       @site_hosts_redirects ||= site_hosts.flat_map { |host| host['redirects'] }.compact
     end

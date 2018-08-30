@@ -1,0 +1,11 @@
+---
+
+- name: Configuring service
+  service:
+    name: "{{ pm2_service_name }}"
+    state: "{{ pm2_service_state }}"
+    enabled: "{{ pm2_service_enabled }}"
+
+# - name: Start service
+#   command: chdir={{ www_root }}/{{ item.key }}/current/frontend pm2 start npm --name "next" -- start
+#   with_dict: "{{ wordpress_sites }}"

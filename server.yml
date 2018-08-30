@@ -35,6 +35,8 @@
     - { role: php, tags: [php] }
     - { role: memcached, tags: [memcached] }
     - { role: nginx, tags: [nginx] }
+    - { role: node, tags: [node] }
+    - { role: pm2, tags: [pm2] }
     - { role: logrotate, tags: [logrotate] }
     - { role: composer, tags: [composer] }
     - { role: wp-cli, tags: [wp-cli] }

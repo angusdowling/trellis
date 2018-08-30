@@ -11,6 +11,7 @@
 - import_tasks: build.yml
 - import_tasks: share.yml
 - import_tasks: finalize.yml
+- import_tasks: node.yml
 
 - include_tasks: "{{ include_path }}"
   with_items: "{{ deploy_after | default([]) }}"
